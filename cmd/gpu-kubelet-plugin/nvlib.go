@@ -176,7 +176,12 @@ func (l deviceLib) getGpuInfo(index int, device nvdev.Device) (*GpuInfo, error) 
 	}
 	architecture, err := device.GetArchitectureAsString()
 	if err != nil {
-		return nil, fmt.Errorf("error getting architecture for device %d: %w", index, err)
+		// hack to support Blackwell
+		if arch, _ := device.GetArchitecture(); arch == 10 {
+			architecture = "Blackwell"
+		} else {
+			return nil, fmt.Errorf("error getting architecture for device %d: %w", index, err)
+		}
 	}
 	brand, err := device.GetBrandAsString()
 	if err != nil {

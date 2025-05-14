@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build image
         env:
-          IMAGE_NAME: ghcr.io/nvidia/k8s-dra-driver-gpu
+          IMAGE_NAME: ghcr.io/thecubed/k8s-dra-driver-gpu
           VERSION: ${{ inputs.version }}
           PUSH_ON_BUILD: true
           BUILD_MULTI_ARCH_IMAGES: "true"
