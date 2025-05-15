@@ -45,7 +45,7 @@ jobs:
           IMAGE_NAME: ghcr.io/thecubed/k8s-dra-driver-gpu
           VERSION: ${{ inputs.version }}
           PUSH_ON_BUILD: true
-          BUILD_MULTI_ARCH_IMAGES: "true"
+          BUILD_MULTI_ARCH_IMAGES: "false"
         run: |
           echo "${VERSION}"
           make -f deployments/container/Makefile build
